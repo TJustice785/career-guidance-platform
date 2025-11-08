@@ -1,0 +1,666 @@
+# 📋 Career Guidance Platform - Implementation Checklist
+
+Print this and check off as you complete each task!
+
+---
+
+## ☐ Phase 12: Testing & Bug Fixes (2-3 hours)
+
+### End-to-End User Flows
+- ☐ Student: Register → Apply → Get Admitted → Find Job
+- ☐ Institute: Register → Add Course → Process Applications → Admit Students
+- ☐ Company: Register → Get Approved → Post Job → Review Applicants
+- ☐ Admin: Manage All Entities → Approve Companies → View Reports
+
+### Cross-browser Testing
+- ☐ Chrome
+- ☐ Firefox
+- ☐ Safari (if available)
+- ☐ Edge
+
+### Bug Fixes
+- ☐ List all bugs found: ___________________
+- ☐ Fix critical bugs
+- ☐ Fix major bugs
+- ☐ Document minor bugs
+
+---
+
+## ☐ Phase 13: Documentation (2 hours)
+
+### Code Documentation
+- ☐ Comments in complex functions
+- ☐ API endpoints documented
+- ☐ README.md updated with setup instructions
+
+### User Documentation
+- ☐ Student user guide
+- ☐ Institute user guide
+- ☐ Company user guide
+- ☐ Admin user guide
+
+### Demo Credentials Document
+- ☐ Admin credentials
+- ☐ Test student account
+- ☐ Test institute account
+- ☐ Test company account
+
+---
+
+## ☐ Phase 14: Deployment (2-3 hours)
+
+### Prepare for Production
+- ☐ Removed console.log statements
+- ☐ Updated environment variables for production
+- ☐ Tested production build locally
+- ☐ Created deployment documentation
+
+### Backend Deployment
+- ☐ Chose hosting platform (Railway/Render)
+- ☐ Created account
+- ☐ Connected GitHub repository
+- ☐ Configured environment variables
+- ☐ Deployed successfully
+- ☐ Backend URL: ___________________
+- ☐ Tested health endpoint
+
+### Frontend Deployment
+- ☐ Chose hosting platform (Vercel/Netlify)
+- ☐ Created account
+- ☐ Connected GitHub repository
+- ☐ Configured environment variables
+- ☐ Updated API URL
+- ☐ Deployed successfully
+- ☐ Frontend URL: ___________________
+- ☐ Tested landing page
+
+### Post-Deployment Testing
+- ☐ Tested complete registration flow
+- ☐ Tested login/logout
+- ☐ Tested course application
+- ☐ Tested job posting
+- ☐ Tested file uploads
+- ☐ Tested email notifications
+
+---
+
+## ☐ Phase 15: Final Submission (1 hour)
+
+### GitHub Repository
+- ☐ All code pushed to GitHub
+- ☐ .gitignore working correctly
+- ☐ README.md complete
+- ☐ All documentation files included
+- ☐ Repository is public
+
+### Submission Package
+- ☐ GitHub repository URL: ___________________
+- ☐ Live frontend URL: ___________________
+- ☐ Live backend URL: ___________________
+- ☐ Demo video (optional): ___________________
+
+### Demo Credentials Document
+```
+Admin:
+Email: admin@careerpath.ls
+Password: Admin@123456
+
+Student:
+Email: ___________________
+Password: ___________________
+
+Institute:
+Email: ___________________
+Password: ___________________
+
+Company:
+Email: ___________________
+Password: ___________________
+```
+
+### Submit on Google Classroom
+- ☐ Prepared submission text with all URLs
+- ☐ Included demo credentials
+- ☐ Added any special notes
+- ☐ Submitted assignment
+- ☐ Confirmed submission received
+
+---
+
+## 📊 Time Tracking
+
+| Phase | Estimated | Actual | Notes |
+|-------|-----------|--------|-------|
+| Setup | 1-2h | _____ | _____ |
+| Backend | 30m | _____ | _____ |
+| Frontend | 30m | _____ | _____ |
+| Firebase | 30m | _____ | _____ |
+| Initial Test | 30m | _____ | _____ |
+| Student Features | 1h | _____ | _____ |
+| Admin Dashboard | 5-6h | _____ | _____ |
+| Institute Dashboard | 4-5h | _____ | _____ |
+| Company Dashboard | 3-4h | _____ | _____ |
+| Business Rules | 2h | _____ | _____ |
+| UI Polish | 2-3h | _____ | _____ |
+| Testing | 2-3h | _____ | _____ |
+| Documentation | 2h | _____ | _____ |
+| Deployment | 2-3h | _____ | _____ |
+| Submission | 1h | _____ | _____ |
+| **TOTAL** | **25-35h** | **_____** | |
+
+---
+
+## 🎯 Project Status
+
+**Current Status:** ☐ Not Started  ☐ In Progress  ☐ Complete
+
+**Overall Progress:** _____ %
+
+**Target Completion Date:** ___________________
+
+**Actual Completion Date:** ___________________
+
+---
+
+## 📝 Notes & Issues
+
+### Week 1:
+_________________________________________________________________
+_________________________________________________________________
+_________________________________________________________________
+
+### Week 2:
+_________________________________________________________________
+_________________________________________________________________
+_________________________________________________________________
+
+### Week 3:
+_________________________________________________________________
+_________________________________________________________________
+_________________________________________________________________
+
+### Week 4:
+_________________________________________________________________
+_________________________________________________________________
+_________________________________________________________________
+
+### Week 5:
+_________________________________________________________________
+_________________________________________________________________
+_________________________________________________________________
+
+---
+
+## ✅ Pre-Submission Checklist
+
+Before submitting, verify:
+
+- ☐ All features from assignment work correctly
+- ☐ Code is clean and well-organized
+- ☐ No console errors in browser
+- ☐ No server errors in logs
+- ☐ All links in README work
+- ☐ Demo credentials are correct
+- ☐ Application is accessible online
+- ☐ Email notifications work
+- ☐ File uploads work
+- ☐ All user roles tested
+- ☐ Responsive design works
+- ☐ Security rules applied
+- ☐ Environment variables secured
+- ☐ Git history is clean
+- ☐ No sensitive data in repository
+
+---
+
+## 🎓 Assignment Requirements Checklist
+
+### System Modules (Required)
+
+**Admin Module:**
+- ☐ Login
+- ☐ Add and manage institutions
+- ☐ Add faculties and courses
+- ☐ Delete or update entities
+- ☐ Publish admissions and monitor users
+- ☐ Manage companies (approve, suspend, delete)
+- ☐ View and manage reports
+
+**Institute Module:**
+- ☐ Register with email verification
+- ☐ Login
+- ☐ Add and manage faculties
+- ☐ Add and manage courses
+- ☐ View student applications
+- ☐ Publish admissions
+- ☐ Manage student status (admitted, rejected, pending)
+- ☐ Update institution profile
+
+**Student Module:**
+- ☐ Register with email verification
+- ☐ Login
+- ☐ Apply for courses (max 2 per institution)
+- ☐ View admissions results
+- ☐ Update profile and upload documents
+- ☐ Upload transcripts and certificates after completion
+- ☐ View and apply for jobs
+- ☐ Receive job notifications matching profile
+
+**Company Module:**
+- ☐ Register with email verification
+- ☐ Login
+- ☐ Post job opportunities with requirements
+- ☐ View filtered qualified applicants (auto-generated)
+- ☐ Filter by: academic performance, certificates, experience, relevance
+- ☐ Receive only interview-ready applications
+- ☐ Update company profile
+
+### Business Rules (Required)
+
+- ☐ Institutions don't admit same student to multiple programs
+- ☐ Students can't apply for courses they don't qualify for
+- ☐ Students can apply max 2 courses per institution
+- ☐ Only qualified students receive job notifications
+- ☐ When student accepts admission, auto-reject others
+- ☐ When student rejects/accepts, move waiting list student up
+
+### Technology Stack (Required)
+
+- ☐ Frontend: React.js ✓
+- ☐ Backend: Node.js ✓
+- ☐ Database: Firebase Firestore ✓
+- ☐ Hosting: Cloud platform ✓
+- ☐ Version Control: GitHub ✓
+
+### Marking Criteria (100 Points)
+
+| Category | Marks | Self-Score | Notes |
+|----------|-------|------------|-------|
+| Project Setup and Structure | 10 | _____ | _____ |
+| Code Quality and Readability | 15 | _____ | _____ |
+| Database Design and Implementation | 15 | _____ | _____ |
+| API Development/Backend | 20 | _____ | _____ |
+| Frontend Design | 20 | _____ | _____ |
+| Interactivity | 10 | _____ | _____ |
+| Presentation and Demonstration | 10 | _____ | _____ |
+| **TOTAL** | **100** | **_____** | |
+
+---
+
+## 🚀 Success Indicators
+
+You're ready to submit when:
+
+- ✓ All checkboxes above are checked
+- ✓ Application is live and accessible
+- ✓ Demo accounts work
+- ✓ No critical bugs
+- ✓ Code is on GitHub
+- ✓ Documentation is complete
+- ✓ You're proud of your work!
+
+---
+
+## 📞 Emergency Contacts
+
+**Lecturers:**
+- Mr. Thokoana: ext. 117, tsekiso.thokoana@limkokwing.ac.ls
+- Mr. 'Molaoa: ext. 117, liteboho.molaoa@limkokwing.ac.ls
+
+**Resources:**
+- Firebase Docs: https://firebase.google.com/docs
+- React Docs: https://react.dev
+- Node.js Docs: https://nodejs.org/docs
+
+---
+
+## 🎉 Completion Certificate
+
+**I, ________________________, certify that:**
+
+- ☐ I have completed all required features
+- ☐ I have tested the application thoroughly
+- ☐ I have deployed the application successfully
+- ☐ I have submitted all required materials
+- ☐ This work is my own (with my group)
+
+**Group Members:**
+1. ________________________
+2. ________________________
+3. ________________________
+
+**Completion Date:** ___________________
+
+**Signature:** ___________________
+
+---
+
+**CONGRATULATIONS! YOU DID IT! 🎓🚀**
+
+Print this checklist and use it to track your progress. Good luck! 1: Setup (1-2 hours)
+
+### Environment Setup
+- ☐ Node.js installed (v16+)
+- ☐ Visual Studio Code installed
+- ☐ Git installed
+- ☐ Firebase account created
+- ☐ GitHub account created
+
+### Project Structure
+- ☐ Created main project folder
+- ☐ Created server directory structure
+- ☐ Created client directory structure
+- ☐ Copied .gitignore file
+
+---
+
+## ☐ Phase 2: Backend Files (30 minutes)
+
+### Configuration Files
+- ☐ server/package.json
+- ☐ server/.env (template created)
+- ☐ server/src/index.js
+- ☐ server/src/config/firebase.config.js
+
+### Middleware
+- ☐ server/src/middleware/auth.middleware.js
+
+### Services
+- ☐ server/src/services/email.service.js
+
+### Routes
+- ☐ server/src/routes/auth.routes.js
+- ☐ server/src/routes/student.routes.js
+- ☐ server/src/routes/institute.routes.js
+- ☐ server/src/routes/company.routes.js
+- ☐ server/src/routes/admin.routes.js
+
+### Controllers
+- ☐ server/src/controllers/auth.controller.js
+- ☐ server/src/controllers/student.controller.js
+- ☐ server/src/controllers/institute.controller.js
+- ☐ server/src/controllers/company.controller.js
+- ☐ server/src/controllers/admin.controller.js
+
+### Install Dependencies
+- ☐ cd server && npm install
+- ☐ All packages installed successfully
+
+---
+
+## ☐ Phase 3: Frontend Files (30 minutes)
+
+### Configuration Files
+- ☐ client/package.json
+- ☐ client/tailwind.config.js
+- ☐ client/postcss.config.js
+- ☐ client/.env (template created)
+
+### Public Files
+- ☐ client/public/index.html
+
+### Core App Files
+- ☐ client/src/index.js
+- ☐ client/src/index.css
+- ☐ client/src/App.js
+
+### Config & Services
+- ☐ client/src/config/firebase.config.js
+- ☐ client/src/services/api.service.js
+
+### Contexts
+- ☐ client/src/contexts/AuthContext.js
+
+### Public Pages
+- ☐ client/src/pages/LandingPage.js
+- ☐ client/src/pages/LoginPage.js
+- ☐ client/src/pages/RegisterPage.js
+- ☐ client/src/pages/ForgotPasswordPage.js
+
+### Student Pages
+- ☐ client/src/pages/student/StudentDashboard.js
+- ☐ client/src/pages/student/StudentHome.js
+- ☐ client/src/pages/student/BrowseInstitutions.js
+- ☐ client/src/pages/student/BrowseCourses.js
+- ☐ client/src/pages/student/MyApplications.js
+- ☐ client/src/pages/student/MyAdmissions.js
+- ☐ client/src/pages/student/MyDocuments.js
+- ☐ client/src/pages/student/BrowseJobs.js
+- ☐ client/src/pages/student/MyJobApplications.js
+- ☐ client/src/pages/student/Notifications.js
+- ☐ client/src/pages/student/Profile.js
+
+### Dashboard Placeholders
+- ☐ client/src/pages/admin/AdminDashboard.js
+- ☐ client/src/pages/institute/InstituteDashboard.js
+- ☐ client/src/pages/company/CompanyDashboard.js
+
+### Install Dependencies
+- ☐ cd client && npm install
+- ☐ All packages installed successfully
+
+---
+
+## ☐ Phase 4: Firebase Configuration (30 minutes)
+
+### Firebase Project Setup
+- ☐ Created Firebase project
+- ☐ Enabled Authentication (Email/Password)
+- ☐ Created Firestore Database
+- ☐ Applied Firestore security rules
+- ☐ Enabled Storage
+- ☐ Applied Storage security rules
+
+### Get Credentials
+- ☐ Got Web App config (for client)
+- ☐ Downloaded Service Account key (for server)
+
+### Configure Environment Variables
+- ☐ Updated server/.env with Firebase credentials
+- ☐ Updated server/.env with email settings
+- ☐ Updated client/.env with Firebase config
+- ☐ Verified all .env files are in .gitignore
+
+---
+
+## ☐ Phase 5: Initial Testing (30 minutes)
+
+### Start Backend
+- ☐ cd server && npm run dev
+- ☐ Server running on port 5000
+- ☐ No errors in console
+- ☐ Health check works: http://localhost:5000/health
+
+### Start Frontend
+- ☐ cd client && npm start
+- ☐ Browser opens automatically
+- ☐ Landing page loads correctly
+- ☐ No console errors
+
+### Create Admin User
+- ☐ Created admin user in Firebase Auth
+- ☐ Created admin document in Firestore users collection
+- ☐ Admin credentials saved securely
+
+### Test Basic Flow
+- ☐ Visited landing page
+- ☐ Clicked "Get Started"
+- ☐ Registered as student
+- ☐ Received verification email
+- ☐ Clicked verification link
+- ☐ Logged in successfully
+- ☐ Student dashboard loads
+
+---
+
+## ☐ Phase 6: Test Student Features (1 hour)
+
+### Navigation
+- ☐ Sidebar opens/closes
+- ☐ All menu items clickable
+- ☐ Logout works
+
+### Browse & Apply
+- ☐ Can browse institutions
+- ☐ Can view courses
+- ☐ Can apply for course
+- ☐ Application appears in "My Applications"
+
+### Documents
+- ☐ Can upload document
+- ☐ Document appears in list
+- ☐ Can view uploaded document
+- ☐ Can delete document
+
+### Profile
+- ☐ Can view profile
+- ☐ Can update profile information
+- ☐ Changes save successfully
+
+---
+
+## ☐ Phase 7: Admin Dashboard (5-6 hours)
+
+### Institution Management
+- ☐ View all institutions list
+- ☐ Add new institution form
+- ☐ Edit institution
+- ☐ Delete institution (with validation)
+- ☐ Search/filter institutions
+
+### Faculty Management
+- ☐ View all faculties list
+- ☐ Add new faculty form
+- ☐ Link faculty to institution
+- ☐ Edit faculty
+- ☐ Delete faculty (with validation)
+
+### Course Management
+- ☐ View all courses list
+- ☐ Add new course form
+- ☐ Link course to institution and faculty
+- ☐ Edit course
+- ☐ Delete course (with validation)
+
+### Company Management
+- ☐ View pending companies
+- ☐ Approve company
+- ☐ Suspend company
+- ☐ Delete company
+- ☐ View company details
+
+### Reports
+- ☐ Dashboard statistics
+- ☐ Applications report
+- ☐ Admissions report
+- ☐ Jobs report
+- ☐ User statistics
+
+---
+
+## ☐ Phase 8: Institute Dashboard (4-5 hours)
+
+### Faculty Management
+- ☐ View my faculties
+- ☐ Add faculty
+- ☐ Edit faculty
+- ☐ Delete faculty
+
+### Course Management
+- ☐ View my courses
+- ☐ Add course
+- ☐ Edit course
+- ☐ Delete course
+- ☐ Activate/Deactivate course
+
+### Application Processing
+- ☐ View all applications
+- ☐ Filter by status
+- ☐ Filter by course
+- ☐ View student details
+- ☐ Admit student
+- ☐ Reject student
+- ☐ Put on waiting list
+
+### Admissions
+- ☐ View admissions
+- ☐ Batch admit students
+- ☐ Send notifications
+- ☐ View accepted students
+
+---
+
+## ☐ Phase 9: Company Dashboard (3-4 hours)
+
+### Job Management
+- ☐ View my jobs
+- ☐ Create new job post
+- ☐ Edit job
+- ☐ Delete job
+- ☐ Activate/Deactivate job
+
+### Application Management
+- ☐ View job applications (auto-filtered)
+- ☐ See match scores
+- ☐ View student details
+- ☐ View student transcript
+- ☐ View student certificates
+- ☐ Update application status
+- ☐ Shortlist candidates
+
+### Dashboard
+- ☐ View statistics
+- ☐ Active jobs count
+- ☐ Total applications
+- ☐ Shortlisted candidates
+
+---
+
+## ☐ Phase 10: Business Rules Testing (2 hours)
+
+### Application Rules
+- ☐ Student can apply max 2 courses per institution
+- ☐ Cannot apply to same course twice
+- ☐ Qualification checking works
+- ☐ Application status updates correctly
+
+### Admission Rules
+- ☐ Student cannot be admitted to multiple programs in same institution
+- ☐ Accepting one admission rejects others
+- ☐ Waiting list moves up when spot opens
+- ☐ Notifications sent correctly
+
+### Job Matching Rules
+- ☐ Only graduates see jobs
+- ☐ Jobs match qualifications
+- ☐ Match score calculated correctly
+- ☐ Companies see qualified candidates only
+
+---
+
+## ☐ Phase 11: UI/UX Polish (2-3 hours)
+
+### Responsiveness
+- ☐ Mobile view works (< 768px)
+- ☐ Tablet view works (768px - 1024px)
+- ☐ Desktop view works (> 1024px)
+
+### Loading States
+- ☐ Spinner shows while loading
+- ☐ Skeleton screens where appropriate
+- ☐ Disabled states on buttons
+
+### Error Handling
+- ☐ Form validation messages
+- ☐ API error messages
+- ☐ Network error handling
+- ☐ 404 page
+
+### Success Feedback
+- ☐ Toast notifications
+- ☐ Success messages
+- ☐ Confirmation dialogs
+
+---
+
+## ☐ Phase

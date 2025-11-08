@@ -1,0 +1,70 @@
+========================================
+   HOW TO ADD YOUR FOUNDER PROFILE PICTURES
+========================================
+
+STEP 1: PREPARE YOUR IMAGES
+----------------------------
+- Format: JPG or PNG
+- Size: 500x500 pixels (square) recommended
+- Quality: High-resolution, professional headshot
+- File size: Under 500KB
+
+STEP 2: RENAME YOUR IMAGE FILES
+--------------------------------
+Use these EXACT filenames:
+
+1. justice-tsehla.jpg    (for Justice Tsehla)
+2. retsepile-phamane.jpg (for Retsepile Phamane)  
+3. boitumelo-marasi.jpg  (for Boitumelo Marasi)
+
+STEP 3: ADD IMAGES TO THIS FOLDER
+----------------------------------
+Copy your 3 renamed images into this folder:
+C:\Users\JUSTICE\Downloads\Career\client\public\images\founders\
+
+Final folder structure:
+founders/
+  ├── justice-tsehla.jpg
+  ├── retsepile-phamane.jpg
+  ├── boitumelo-marasi.jpg
+  └── HOW-TO-ADD-IMAGES.txt (this file)
+
+STEP 4: VIEW YOUR IMAGES
+-------------------------
+1. Rebuild: npm run build
+2. Or just refresh the page in development mode
+3. Visit landing page → Scroll to "Meet Our Founders"
+4. Your photos will appear!
+
+FALLBACK:
+If an image is missing, initials will show:
+- JT (blue background) for Justice
+- RP (green background) for Retsepile
+- BM (purple background) for Boitumelo
+
+TIPS FOR BEST RESULTS:
+----------------------
+✓ Professional headshots with good lighting
+✓ Neutral or professional backgrounds
+✓ Faces centered and clearly visible
+✓ Consistent style across all 3 photos
+
+✗ Avoid low-resolution images
+✗ Avoid busy backgrounds
+✗ Don't crop faces too tightly
+
+TROUBLESHOOTING:
+----------------
+Images not showing?
+1. Check filenames match EXACTLY (case-sensitive)
+2. Images are in correct folder
+3. Clear browser cache: Ctrl + Shift + R
+4. Check browser console for errors
+
+IMAGE OPTIMIZATION TOOLS:
+-------------------------
+- TinyPNG: https://tinypng.com/
+- Squoosh: https://squoosh.app/
+- ImageOptim: https://imageoptim.com/
+
+========================================

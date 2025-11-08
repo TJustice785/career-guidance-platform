@@ -1,0 +1,39 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Allow authenticated users to upload files to their own folder
+    match /users/{userId}/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Allow users to upload resumes and documents
+    match /resumes/{userId}/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId
+        && request.resource.size < 5 * 1024 * 1024 // 5MB limit
+        && request.resource.contentType.matches('application/pdf|application/msword|application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+    }
+    
+    match /documents/{userId}/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId
+        && request.resource.size < 10 * 1024 * 1024; // 10MB limit
+    }
+    
+    // Allow profile pictures
+    match /profile-pictures/{userId}/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId
+        && request.resource.size < 2 * 1024 * 1024 // 2MB limit
+        && request.resource.contentType.matches('image/.*');
+    }
+    
+    // PUBLIC READ (ADDED): allow anyone (including unauthenticated users) to read any
+    // storage object. WARNING: This makes your Storage publicly readable. Use only
+    // for temporary debugging or public files and revert afterwards.
+    match /{allPaths=**} {
+      allow read: if true;
+    }
+  }
+}

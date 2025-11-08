@@ -1,0 +1,466 @@
+# Implementation Checklist
+
+This checklist will guide you through implementing the Career Guidance Platform step by step.
+
+## Phase 1: Environment Setup ✅
+
+### 1.1 Install Required Software
+- [ ] Install Node.js (v16+): https://nodejs.org/
+- [ ] Install Visual Studio Code: https://code.visualstudio.com/
+- [ ] Install Git: https://git-scm.com/
+- [ ] Create GitHub account: https://github.com/
+- [ ] Create Firebase account: https://firebase.google.com/
+
+### 1.2 Create Project Directory
+```bash
+mkdir career-guidance-platform
+cd career-guidance-platform
+```
+
+### 1.3 Download Project Files
+- [ ] Copy all provided files into the project directory
+- [ ] Follow the structure in `PROJECT_STRUCTURE.md`
+
+## Phase 2: Firebase Configuration ✅
+
+### 2.1 Create Firebase Project
+- [ ] Go to Firebase Console
+- [ ] Click "Add project"
+- [ ] Name: `career-guidance-platform`
+- [ ] Create project
+
+### 2.2 Enable Authentication
+- [ ] Go to Build > Authentication
+- [ ] Click "Get started"
+- [ ] Enable Email/Password provider
+
+### 2.3 Create Firestore Database
+- [ ] Go to Build > Firestore Database
+- [ ] Click "Create database"
+- [ ] Start in production mode
+- [ ] Choose location (closest to Lesotho: europe-west)
+- [ ] Copy and apply the Firestore rules from `DEPLOYMENT_GUIDE.md`
+
+### 2.4 Enable Storage
+- [ ] Go to Build > Storage
+- [ ] Click "Get started"
+- [ ] Copy and apply the Storage rules from `DEPLOYMENT_GUIDE.md`
+
+### 2.5 Get Firebase Credentials
+
+#### For Frontend (client/.env)
+- [ ] Go to Project Settings (gear icon)
+- [ ] Scroll to "Your apps"
+- [ ] Click Web icon (`</>`)
+- [ ] Register app: `career-guidance-web`
+- [ ] Copy firebaseConfig values
+
+#### For Backend (server/.env)
+- [ ] Go to Project Settings > Service Accounts
+- [ ] Click "Generate new private key"
+- [ ] Save JSON file
+- [ ] Extract project_id, private_key, client_email
+
+## Phase 3: Backend Setup ✅
+
+### 3.1 Install Backend Dependencies
+```bash
+cd server
+npm install
+```
+
+### 3.2 Create Backend .env File
+```bash
+# Create server/.env with these values:
+PORT=5000
+NODE_ENV=development
+
+FIREBASE_PROJECT_ID=your-project-id
+FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxx@your-project.iam.gserviceaccount.com
+
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASSWORD=your-app-password
+
+CLIENT_URL=http://localhost:3000
+```
+
+### 3.3 Get Gmail App Password
+- [ ] Go to Google Account Security
+- [ ] Enable 2-Step Verification
+- [ ] Go to App Passwords
+- [ ] Generate password for "Career Guidance"
+- [ ] Copy 16-character password to .env
+
+### 3.4 Create All Backend Files
+- [ ] `src/config/firebase.config.js`
+- [ ] `src/index.js`
+- [ ] `src/middleware/auth.middleware.js`
+- [ ] `src/services/email.service.js`
+- [ ] `src/routes/auth.routes.js`
+- [ ] `src/controllers/auth.controller.js`
+- [ ] `src/routes/student.routes.js`
+- [ ] `src/controllers/student.controller.js`
+- [ ] `src/routes/institute.routes.js`
+- [ ] `src/controllers/institute.controller.js`
+- [ ] `src/routes/company.routes.js`
+- [ ] `src/controllers/company.controller.js`
+- [ ] `src/routes/admin.routes.js`
+- [ ] `src/controllers/admin.controller.js`
+
+### 3.5 Test Backend
+```bash
+npm run dev
+```
+- [ ] Should see: "🚀 Server running on port 5000"
+- [ ] Test health endpoint: http://localhost:5000/health
+
+## Phase 4: Frontend Setup ✅
+
+### 4.1 Install Frontend Dependencies
+```bash
+cd ../client
+npm install
+```
+
+### 4.2 Create Frontend .env File
+```bash
+# Create client/.env with these values:
+REACT_APP_API_URL=http://localhost:5000/api
+
+REACT_APP_FIREBASE_API_KEY=your-api-key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+REACT_APP_FIREBASE_PROJECT_ID=your-project-id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your-project.appspot.com
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-sender-id
+REACT_APP_FIREBASE_APP_ID=your-app-id
+```
+
+### 4.3 Create Frontend Core Files
+- [ ] `tailwind.config.js`
+- [ ] `src/index.css`
+- [ ] `src/config/firebase.config.js`
+- [ ] `src/services/api.service.js`
+- [ ] `src/contexts/AuthContext.js`
+- [ ] `src/App.js`
+- [ ] `src/index.js`
+
+### 4.4 Create Pages
+- [ ] `src/pages/LandingPage.js`
+- [ ] `src/pages/LoginPage.js`
+- [ ] `src/pages/RegisterPage.js`
+- [ ] `src/pages/ForgotPasswordPage.js`
+- [ ] `src/pages/admin/AdminDashboard.js`
+- [ ] `src/pages/student/StudentDashboard.js`
+- [ ] `src/pages/institute/InstituteDashboard.js`
+- [ ] `src/pages/company/CompanyDashboard.js`
+
+### 4.5 Test Frontend
+```bash
+npm start
+```
+- [ ] Should open http://localhost:3000
+- [ ] Should see landing page
+
+## Phase 5: Create Admin User ✅
+
+### 5.1 Option 1: Firebase Console
+- [ ] Go to Firebase Console > Authentication
+- [ ] Add user: admin@careerpath.ls / Admin@123456
+- [ ] Copy UID
+- [ ] Go to Firestore > users collection
+- [ ] Add document with UID as ID
+- [ ] Add fields: email, role: "admin", emailVerified: true
+
+### 5.2 Option 2: Use Script
+```bash
+# Create server/scripts/createAdmin.js (see DEPLOYMENT_GUIDE.md)
+cd server
+node scripts/createAdmin.js
+```
+
+## Phase 6: Test Core Features ✅
+
+### 6.1 Test Authentication
+- [ ] Register as student
+- [ ] Check email for verification
+- [ ] Verify email
+- [ ] Login with student account
+- [ ] Logout
+- [ ] Login with admin account
+
+### 6.2 Test Admin Features
+- [ ] Login as admin
+- [ ] Add an institution
+- [ ] Add faculty to institution
+- [ ] Add course to faculty
+- [ ] View all users
+- [ ] Check dashboard stats
+
+### 6.3 Test Student Features
+- [ ] Login as student
+- [ ] Browse institutions
+- [ ] View courses
+- [ ] Apply for a course
+- [ ] View applications
+- [ ] Upload documents
+
+### 6.4 Test Institute Features
+- [ ] Register as institute
+- [ ] Verify email
+- [ ] Login
+- [ ] Add faculties
+- [ ] Add courses
+- [ ] View applications
+- [ ] Process application (admit/reject)
+
+### 6.5 Test Company Features
+- [ ] Register as company
+- [ ] Verify email
+- [ ] Wait for admin approval
+- [ ] Login after approval
+- [ ] Post a job
+- [ ] View qualified applicants
+
+## Phase 7: Build Additional Features ✅
+
+### 7.1 Student Module
+- [ ] Course application with qualification check
+- [ ] Application tracking
+- [ ] Admission results
+- [ ] Accept/Reject admission
+- [ ] Document uploads
+- [ ] Transcript upload
+- [ ] Certificate uploads
+- [ ] Job browsing
+- [ ] Job applications
+- [ ] Notifications
+
+### 7.2 Institute Module
+- [ ] Faculty management
+- [ ] Course management
+- [ ] Application processing
+- [ ] Admission publishing
+- [ ] Student management
+- [ ] Waiting list management
+
+### 7.3 Company Module
+- [ ] Job posting
+- [ ] View qualified candidates only
+- [ ] Application management
+- [ ] Interview scheduling
+
+### 7.4 Admin Module
+- [ ] Institution management
+- [ ] Faculty management
+- [ ] Course management
+- [ ] Company approval
+- [ ] User management
+- [ ] Reports and analytics
+
+## Phase 8: Implement Business Rules ✅
+
+### 8.1 Application Rules
+- [ ] Maximum 2 applications per institution
+- [ ] No duplicate course applications
+- [ ] Qualification checking before application
+- [ ] No admission to same student in multiple programs
+
+### 8.2 Admission Rules
+- [ ] Student can accept only one admission
+- [ ] Auto-reject other admissions when one is accepted
+- [ ] Move waiting list student to main list
+- [ ] Send notifications for admission updates
+
+### 8.3 Job Matching Rules
+- [ ] Only show jobs to graduates (with transcript)
+- [ ] Filter by academic performance
+- [ ] Match extra certificates
+- [ ] Consider work experience
+- [ ] Check job relevance
+
+## Phase 9: UI/UX Enhancement ✅
+
+### 9.1 Design System
+- [ ] Consistent color scheme (Tailwind)
+- [ ] Typography system
+- [ ] Spacing system
+- [ ] Button styles
+- [ ] Form styles
+- [ ] Card components
+- [ ] Modal components
+
+### 9.2 Responsive Design
+- [ ] Mobile-first approach
+- [ ] Tablet breakpoints
+- [ ] Desktop breakpoints
+- [ ] Test on different screen sizes
+
+### 9.3 User Experience
+- [ ] Loading states
+- [ ] Error messages
+- [ ] Success messages
+- [ ] Empty states
+- [ ] Confirmation dialogs
+- [ ] Progress indicators
+
+## Phase 10: Testing ✅
+
+### 10.1 Manual Testing
+- [ ] Test all user flows
+- [ ] Test edge cases
+- [ ] Test error handling
+- [ ] Test file uploads
+- [ ] Test notifications
+- [ ] Test email sending
+
+### 10.2 Cross-browser Testing
+- [ ] Chrome
+- [ ] Firefox
+- [ ] Safari
+- [ ] Edge
+
+### 10.3 Performance Testing
+- [ ] Page load times
+- [ ] API response times
+- [ ] Large file uploads
+- [ ] Many records handling
+
+## Phase 11: Deployment ✅
+
+### 11.1 Prepare for Deployment
+- [ ] Remove console.logs
+- [ ] Update environment variables for production
+- [ ] Test production build locally
+- [ ] Create deployment documentation
+
+### 11.2 Deploy Backend
+- [ ] Choose hosting (Railway recommended)
+- [ ] Create account
+- [ ] Connect GitHub repository
+- [ ] Configure environment variables
+- [ ] Deploy
+- [ ] Test deployed backend
+
+### 11.3 Deploy Frontend
+- [ ] Choose hosting (Vercel recommended)
+- [ ] Create account
+- [ ] Connect GitHub repository
+- [ ] Configure environment variables
+- [ ] Update API URL in frontend
+- [ ] Deploy
+- [ ] Test deployed frontend
+
+### 11.4 Post-Deployment
+- [ ] Test complete user flows on live site
+- [ ] Create test accounts
+- [ ] Document demo credentials
+- [ ] Share live URLs
+
+## Phase 12: Documentation ✅
+
+### 12.1 Code Documentation
+- [ ] Add comments to complex functions
+- [ ] Document API endpoints
+- [ ] Create API documentation
+
+### 12.2 User Documentation
+- [ ] User manual for students
+- [ ] User manual for institutes
+- [ ] User manual for companies
+- [ ] Admin guide
+
+### 12.3 Project Documentation
+- [ ] Update README.md
+- [ ] Complete DEPLOYMENT_GUIDE.md
+- [ ] Create video demo (optional)
+
+## Phase 13: Submission ✅
+
+### 13.1 GitHub Repository
+- [ ] Push all code to GitHub
+- [ ] Ensure .gitignore is working
+- [ ] README is complete
+- [ ] Add license file
+
+### 13.2 Prepare Submission Package
+- [ ] GitHub repository URL
+- [ ] Live backend URL
+- [ ] Live frontend URL
+- [ ] Demo credentials
+- [ ] Documentation files
+- [ ] Video demo link (if created)
+
+### 13.3 Submit on Google Classroom
+- [ ] Submit GitHub repository link
+- [ ] Include all URLs in submission
+- [ ] Add any additional notes
+
+## Troubleshooting Common Issues
+
+### Issue: Backend won't start
+**Solution:**
+- Check if port 5000 is available
+- Verify all environment variables are set
+- Check Firebase credentials format
+- Look at error logs
+
+### Issue: Frontend won't connect to backend
+**Solution:**
+- Verify REACT_APP_API_URL is correct
+- Check backend is running
+- Check CORS settings
+- Verify network connectivity
+
+### Issue: Authentication errors
+**Solution:**
+- Verify Firebase config is correct
+- Check email verification
+- Ensure user exists in both Auth and Firestore
+- Check user role permissions
+
+### Issue: File upload fails
+**Solution:**
+- Check Firebase Storage rules
+- Verify file size is under limit
+- Check file type is allowed
+- Ensure storage bucket is configured
+
+### Issue: Emails not sending
+**Solution:**
+- Use Gmail App Password (not regular password)
+- Check email credentials
+- Verify SMTP settings
+- Check spam folder
+
+## Tips for Success
+
+1. **Work Incrementally**: Build and test one feature at a time
+2. **Use Git**: Commit frequently with clear messages
+3. **Test Often**: Test after implementing each feature
+4. **Read Error Messages**: They usually tell you what's wrong
+5. **Use Console**: console.log() is your friend for debugging
+6. **Ask for Help**: Don't hesitate to ask instructors or classmates
+7. **Document**: Write notes as you build
+8. **Stay Organized**: Follow the project structure strictly
+9. **Time Management**: Start early, don't wait until the last day
+10. **Backup**: Push to GitHub regularly
+
+## Time Estimate
+
+- **Phase 1-2**: 2-3 hours (Setup)
+- **Phase 3-4**: 4-6 hours (Core implementation)
+- **Phase 5-6**: 2-3 hours (Testing basics)
+- **Phase 7-8**: 8-10 hours (Features & rules)
+- **Phase 9**: 3-4 hours (UI enhancement)
+- **Phase 10**: 2-3 hours (Testing)
+- **Phase 11**: 2-3 hours (Deployment)
+- **Phase 12-13**: 2-3 hours (Documentation & submission)
+
+**Total: 25-35 hours** (Spread over 5-6 weeks)
+
+## Good Luck! 🚀
+
+Remember: This is a learning project. Don't stress about perfection. Focus on understanding concepts and implementing core functionality. You've got this! 💪

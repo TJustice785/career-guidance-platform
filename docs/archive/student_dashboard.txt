@@ -1,0 +1,192 @@
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
+import { studentAPI } from '../../services/api.service';
+import { 
+  FaHome, FaUniversity, FaBook, FaFileAlt, FaCheckCircle, 
+  FaBriefcase, FaBell, FaUser, FaSignOutAlt, FaBars, FaTimes 
+} from 'react-icons/fa';
+import toast from 'react-hot-toast';
+
+// Import sub-pages (we'll create these)
+import StudentHome from './StudentHome';
+import BrowseInstitutions from './BrowseInstitutions';
+import BrowseCourses from './BrowseCourses';
+import MyApplications from './MyApplications';
+import MyAdmissions from './MyAdmissions';
+import MyDocuments from './MyDocuments';
+import BrowseJobs from './BrowseJobs';
+import MyJobApplications from './MyJobApplications';
+import Notifications from './Notifications';
+import Profile from './Profile';
+
+const StudentDashboard = () => {
+  const { userData, logout } = useAuth();
+  const navigate = useNavigate();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [notifications, setNotifications] = useState([]);
+
+  useEffect(() => {
+    fetchNotifications();
+  }, []);
+
+  const fetchNotifications = async () => {
+    try {
+      const response = await studentAPI.getNotifications();
+      const unreadNotifications = response.data.data.filter(n => !n.read);
+      setNotifications(unreadNotifications);
+    } catch (error) {
+      console.error('Error fetching notifications:', error);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate('/');
+    } catch (error) {
+      toast.error('Logout failed');
+    }
+  };
+
+  const menuItems = [
+    { icon: FaHome, label: 'Dashboard', path: '/student' },
+    { icon: FaUniversity, label: 'Browse Institutions', path: '/student/institutions' },
+    { icon: FaBook, label: 'Browse Courses', path: '/student/courses' },
+    { icon: FaFileAlt, label: 'My Applications', path: '/student/applications' },
+    { icon: FaCheckCircle, label: 'My Admissions', path: '/student/admissions' },
+    { icon: FaFileAlt, label: 'My Documents', path: '/student/documents' },
+    { icon: FaBriefcase, label: 'Browse Jobs', path: '/student/jobs' },
+    { icon: FaBriefcase, label: 'Job Applications', path: '/student/job-applications' },
+    { icon: FaBell, label: 'Notifications', path: '/student/notifications' },
+    { icon: FaUser, label: 'Profile', path: '/student/profile' }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-50 flex">
+      {/* Sidebar */}
+      <aside className={`
+        fixed lg:static inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out
+        ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+      `}>
+        <div className="flex items-center justify-between p-6 border-b">
+          <div className="flex items-center">
+            <FaUniversity className="text-primary-600 text-2xl mr-2" />
+            <span className="text-xl font-bold text-gray-900">Student</span>
+          </div>
+          <button
+            onClick={() => setSidebarOpen(false)}
+            className="lg:hidden text-gray-500 hover:text-gray-700"
+          >
+            <FaTimes size={20} />
+          </button>
+        </div>
+
+        {/* User Info */}
+        <div className="p-6 border-b">
+          <div className="flex items-center">
+            <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+              <span className="text-primary-600 font-bold text-lg">
+                {userData?.firstName?.[0]}{userData?.lastName?.[0]}
+              </span>
+            </div>
+            <div className="ml-3">
+              <p className="text-sm font-medium text-gray-900">
+                {userData?.firstName} {userData?.lastName}
+              </p>
+              <p className="text-xs text-gray-500">{userData?.email}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation */}
+        <nav className="p-4">
+          {menuItems.map((item, index) => (
+            <Link
+              key={index}
+              to={item.path}
+              onClick={() => setSidebarOpen(false)}
+              className="flex items-center px-4 py-3 mb-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-lg transition group"
+            >
+              <item.icon className="mr-3 group-hover:scale-110 transition" />
+              <span className="flex-1">{item.label}</span>
+              {item.label === 'Notifications' && notifications.length > 0 && (
+                <span className="bg-red-500 text-white text-xs rounded-full px-2 py-1">
+                  {notifications.length}
+                </span>
+              )}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Logout */}
+        <div className="absolute bottom-0 w-full p-4 border-t">
+          <button
+            onClick={handleLogout}
+            className="flex items-center w-full px-4 py-3 text-red-600 hover:bg-red-50 rounded-lg transition"
+          >
+            <FaSignOutAlt className="mr-3" />
+            <span>Logout</span>
+          </button>
+        </div>
+      </aside>
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col overflow-hidden">
+        {/* Top Bar */}
+        <header className="bg-white shadow-sm">
+          <div className="flex items-center justify-between px-6 py-4">
+            <button
+              onClick={() => setSidebarOpen(true)}
+              className="lg:hidden text-gray-500 hover:text-gray-700"
+            >
+              <FaBars size={24} />
+            </button>
+            <h1 className="text-2xl font-bold text-gray-900">
+              Welcome back, {userData?.firstName}!
+            </h1>
+            <div className="flex items-center space-x-4">
+              <Link
+                to="/student/notifications"
+                className="relative p-2 text-gray-600 hover:text-primary-600 transition"
+              >
+                <FaBell size={20} />
+                {notifications.length > 0 && (
+                  <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                    {notifications.length}
+                  </span>
+                )}
+              </Link>
+            </div>
+          </div>
+        </header>
+
+        {/* Page Content */}
+        <main className="flex-1 overflow-y-auto p-6">
+          <Routes>
+            <Route index element={<StudentHome />} />
+            <Route path="institutions" element={<BrowseInstitutions />} />
+            <Route path="courses" element={<BrowseCourses />} />
+            <Route path="applications" element={<MyApplications />} />
+            <Route path="admissions" element={<MyAdmissions />} />
+            <Route path="documents" element={<MyDocuments />} />
+            <Route path="jobs" element={<BrowseJobs />} />
+            <Route path="job-applications" element={<MyJobApplications />} />
+            <Route path="notifications" element={<Notifications />} />
+            <Route path="profile" element={<Profile />} />
+          </Routes>
+        </main>
+      </div>
+
+      {/* Overlay */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+    </div>
+  );
+};
+
+export default StudentDashboard;

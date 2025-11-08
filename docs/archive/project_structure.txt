@@ -1,0 +1,373 @@
+# Complete Project Structure
+
+## Overview
+
+This document shows the complete file structure for the Career Guidance Platform. All files should be created in Visual Studio Code following this exact structure.
+
+```
+career-guidance-platform/
+│
+├── README.md                          # Project documentation
+├── DEPLOYMENT_GUIDE.md                # Deployment instructions
+├── PROJECT_STRUCTURE.md               # This file
+├── .gitignore                         # Git ignore rules
+├── setup.sh                           # Quick setup script (Unix/Mac)
+│
+├── server/                            # Backend Node.js application
+│   ├── package.json
+│   ├── .env                           # Environment variables (create this)
+│   │
+│   └── src/
+│       ├── index.js                   # Entry point
+│       │
+│       ├── config/
+│       │   └── firebase.config.js     # Firebase Admin initialization
+│       │
+│       ├── middleware/
+│       │   ├── auth.middleware.js     # Authentication middleware
+│       │   └── validation.middleware.js
+│       │
+│       ├── routes/
+│       │   ├── auth.routes.js         # Authentication routes
+│       │   ├── admin.routes.js        # Admin routes
+│       │   ├── student.routes.js      # Student routes
+│       │   ├── institute.routes.js    # Institute routes
+│       │   ├── company.routes.js      # Company routes
+│       │   ├── application.routes.js  # Application routes
+│       │   └── job.routes.js          # Job routes
+│       │
+│       ├── controllers/
+│       │   ├── auth.controller.js     # Auth logic
+│       │   ├── admin.controller.js    # Admin logic
+│       │   ├── student.controller.js  # Student logic
+│       │   ├── institute.controller.js # Institute logic
+│       │   ├── company.controller.js  # Company logic
+│       │   ├── application.controller.js
+│       │   └── job.controller.js
+│       │
+│       ├── services/
+│       │   ├── email.service.js       # Email sending
+│       │   ├── notification.service.js # Notifications
+│       │   ├── matching.service.js    # Job matching algorithm
+│       │   └── storage.service.js     # File storage
+│       │
+│       ├── utils/
+│       │   ├── helpers.js             # Helper functions
+│       │   ├── validators.js          # Custom validators
+│       │   └── constants.js           # Constants
+│       │
+│       ├── models/                    # Data models (TypeScript interfaces)
+│       │   ├── user.model.js
+│       │   ├── application.model.js
+│       │   └── job.model.js
+│       │
+│       └── scripts/
+│           └── createAdmin.js         # Script to create admin user
+│
+└── client/                            # Frontend React application
+    ├── package.json
+    ├── tailwind.config.js
+    ├── postcss.config.js
+    ├── .env                           # Environment variables (create this)
+    │
+    ├── public/
+    │   ├── index.html
+    │   ├── favicon.ico
+    │   └── manifest.json
+    │
+    └── src/
+        ├── index.js                   # React entry point
+        ├── index.css                  # Global styles with Tailwind
+        ├── App.js                     # Main app component
+        │
+        ├── config/
+        │   └── firebase.config.js     # Firebase client initialization
+        │
+        ├── contexts/
+        │   └── AuthContext.js         # Authentication context
+        │
+        ├── services/
+        │   └── api.service.js         # API service with axios
+        │
+        ├── hooks/
+        │   ├── useAuth.js             # Auth hook
+        │   ├── useStudent.js          # Student operations hook
+        │   ├── useInstitute.js        # Institute operations hook
+        │   └── useCompany.js          # Company operations hook
+        │
+        ├── utils/
+        │   ├── formatters.js          # Date, currency formatters
+        │   ├── validators.js          # Form validators
+        │   └── helpers.js             # Helper functions
+        │
+        ├── components/
+        │   │
+        │   ├── common/                # Shared components
+        │   │   ├── Navbar.js
+        │   │   ├── Sidebar.js
+        │   │   ├── Footer.js
+        │   │   ├── Button.js
+        │   │   ├── Card.js
+        │   │   ├── Modal.js
+        │   │   ├── Table.js
+        │   │   ├── Input.js
+        │   │   ├── Select.js
+        │   │   ├── FileUpload.js
+        │   │   ├── Loading.js
+        │   │   ├── Alert.js
+        │   │   ├── Badge.js
+        │   │   └── Pagination.js
+        │   │
+        │   ├── admin/                 # Admin-specific components
+        │   │   ├── InstitutionForm.js
+        │   │   ├── FacultyForm.js
+        │   │   ├── CourseForm.js
+        │   │   ├── CompanyApproval.js
+        │   │   ├── UserManagement.js
+        │   │   └── Dashboard.js
+        │   │
+        │   ├── student/               # Student-specific components
+        │   │   ├── InstitutionCard.js
+        │   │   ├── CourseCard.js
+        │   │   ├── ApplicationForm.js
+        │   │   ├── AdmissionCard.js
+        │   │   ├── JobCard.js
+        │   │   ├── DocumentUpload.js
+        │   │   ├── TranscriptUpload.js
+        │   │   └── Dashboard.js
+        │   │
+        │   ├── institute/             # Institute-specific components
+        │   │   ├── FacultyManagement.js
+        │   │   ├── CourseManagement.js
+        │   │   ├── ApplicationsList.js
+        │   │   ├── AdmissionPublish.js
+        │   │   └── Dashboard.js
+        │   │
+        │   └── company/               # Company-specific components
+        │       ├── JobPostForm.js
+        │       ├── JobsList.js
+        │       ├── ApplicantsList.js
+        │       ├── ApplicantCard.js
+        │       └── Dashboard.js
+        │
+        └── pages/
+            ├── LandingPage.js         # Public landing page
+            ├── LoginPage.js           # Login page
+            ├── RegisterPage.js        # Registration page
+            ├── ForgotPasswordPage.js  # Password reset
+            ├── VerifyEmailPage.js     # Email verification
+            │
+            ├── admin/                 # Admin pages
+            │   ├── AdminDashboard.js  # Main dashboard
+            │   ├── Institutions.js    # Manage institutions
+            │   ├── Faculties.js       # Manage faculties
+            │   ├── Courses.js         # Manage courses
+            │   ├── Companies.js       # Manage companies
+            │   ├── Users.js           # Manage users
+            │   └── Reports.js         # View reports
+            │
+            ├── student/               # Student pages
+            │   ├── StudentDashboard.js # Main dashboard
+            │   ├── BrowseInstitutions.js
+            │   ├── BrowseCourses.js
+            │   ├── MyApplications.js
+            │   ├── MyAdmissions.js
+            │   ├── MyDocuments.js
+            │   ├── BrowseJobs.js
+            │   ├── MyJobApplications.js
+            │   ├── Notifications.js
+            │   └── Profile.js
+            │
+            ├── institute/             # Institute pages
+            │   ├── InstituteDashboard.js
+            │   ├── ManageFaculties.js
+            │   ├── ManageCourses.js
+            │   ├── ViewApplications.js
+            │   ├── PublishAdmissions.js
+            │   ├── Students.js
+            │   └── Profile.js
+            │
+            └── company/               # Company pages
+                ├── CompanyDashboard.js
+                ├── PostJob.js
+                ├── MyJobs.js
+                ├── ViewApplicants.js
+                └── Profile.js
+```
+
+## File Creation Order
+
+### Priority 1: Core Setup Files (Start Here)
+1. `README.md`
+2. `.gitignore`
+3. `server/package.json`
+4. `client/package.json`
+5. `server/.env` (from template)
+6. `client/.env` (from template)
+
+### Priority 2: Backend Foundation
+7. `server/src/config/firebase.config.js`
+8. `server/src/index.js`
+9. `server/src/middleware/auth.middleware.js`
+10. `server/src/services/email.service.js`
+
+### Priority 3: Authentication
+11. `server/src/routes/auth.routes.js`
+12. `server/src/controllers/auth.controller.js`
+
+### Priority 4: Module Routes & Controllers
+13. `server/src/routes/student.routes.js`
+14. `server/src/controllers/student.controller.js`
+15. `server/src/routes/institute.routes.js`
+16. `server/src/controllers/institute.controller.js`
+17. `server/src/routes/company.routes.js`
+18. `server/src/controllers/company.controller.js`
+19. `server/src/routes/admin.routes.js`
+20. `server/src/controllers/admin.controller.js`
+
+### Priority 5: Frontend Setup
+21. `client/tailwind.config.js`
+22. `client/src/index.css`
+23. `client/src/config/firebase.config.js`
+24. `client/src/services/api.service.js`
+25. `client/src/contexts/AuthContext.js`
+
+### Priority 6: Main App & Pages
+26. `client/src/App.js`
+27. `client/src/index.js`
+28. `client/src/pages/LandingPage.js`
+29. `client/src/pages/LoginPage.js`
+30. `client/src/pages/RegisterPage.js`
+
+### Priority 7: Dashboard Pages
+31. `client/src/pages/student/StudentDashboard.js`
+32. `client/src/pages/institute/InstituteDashboard.js`
+33. `client/src/pages/company/CompanyDashboard.js`
+34. `client/src/pages/admin/AdminDashboard.js`
+
+### Priority 8: Components (As Needed)
+35. Common components (Button, Card, Modal, etc.)
+36. Role-specific components
+37. Feature-specific pages
+
+## Quick Start Commands
+
+### Windows (PowerShell)
+```powershell
+# Create main directories
+New-Item -ItemType Directory -Path server\src\config,server\src\controllers,server\src\routes,server\src\middleware,server\src\services,server\src\utils,server\src\models,server\src\scripts
+New-Item -ItemType Directory -Path client\src\components\common,client\src\components\admin,client\src\components\student,client\src\components\institute,client\src\components\company
+New-Item -ItemType Directory -Path client\src\pages\admin,client\src\pages\student,client\src\pages\institute,client\src\pages\company
+New-Item -ItemType Directory -Path client\src\contexts,client\src\services,client\src\utils,client\src\hooks,client\src\config
+
+# Install dependencies
+cd server
+npm install
+cd ../client
+npm install
+cd ..
+```
+
+### Unix/Mac/Linux
+```bash
+# Make setup script executable
+chmod +x setup.sh
+
+# Run setup script
+./setup.sh
+```
+
+## VS Code Workspace Setup
+
+Create `.vscode/settings.json`:
+
+```json
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.env": false
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/build": true,
+    "**/dist": true
+  }
+}
+```
+
+## Environment Files Templates
+
+### server/.env
+```env
+PORT=5000
+NODE_ENV=development
+
+FIREBASE_PROJECT_ID=
+FIREBASE_PRIVATE_KEY=
+FIREBASE_CLIENT_EMAIL=
+
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=
+EMAIL_PASSWORD=
+
+CLIENT_URL=http://localhost:3000
+```
+
+### client/.env
+```env
+REACT_APP_API_URL=http://localhost:5000/api
+
+REACT_APP_FIREBASE_API_KEY=
+REACT_APP_FIREBASE_AUTH_DOMAIN=
+REACT_APP_FIREBASE_PROJECT_ID=
+REACT_APP_FIREBASE_STORAGE_BUCKET=
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=
+REACT_APP_FIREBASE_APP_ID=
+```
+
+## Development Workflow
+
+1. **Open VS Code**
+   ```bash
+   code .
+   ```
+
+2. **Open Two Terminals in VS Code**
+   - Terminal 1 (Backend):
+     ```bash
+     cd server
+     npm run dev
+     ```
+   - Terminal 2 (Frontend):
+     ```bash
+     cd client
+     npm start
+     ```
+
+3. **Access Application**
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:5000/api
+
+## Git Setup
+
+```bash
+git init
+git add .
+git commit -m "Initial commit: Career Guidance Platform"
+git branch -M main
+git remote add origin https://github.com/yourusername/career-guidance-platform.git
+git push -u origin main
+```
+
+## Notes
+
+- All `.env` files must be created manually and never committed to Git
+- Use the provided templates to create your environment files
+- Follow the Priority order for file creation to avoid errors
+- Test each module after implementation before moving to the next
