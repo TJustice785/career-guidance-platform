@@ -169,7 +169,7 @@ const RegisterPage = () => {
                       value={formData.firstName}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-                      placeholder="John"
+                      placeholder="Thabo"
                     />
                   </div>
                   <div>
@@ -183,7 +183,7 @@ const RegisterPage = () => {
                       value={formData.lastName}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-                      placeholder="Doe"
+                      placeholder="Mokoena"
                     />
                   </div>
                 </div>
@@ -203,7 +203,7 @@ const RegisterPage = () => {
                       value={formData.name}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-                      placeholder={formData.role === 'institute' ? 'University of Example' : 'Example Corp'}
+                      placeholder={formData.role === 'institute' ? 'National University of Lesotho' : 'Lesotho Tech Solutions'}
                     />
                   </div>
 
@@ -245,7 +245,7 @@ const RegisterPage = () => {
                         value={formData.website}
                         onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-                      placeholder="https://example.com"
+                      placeholder="https://yoursite.co.ls"
                       />
                     </div>
                   </div>
@@ -301,7 +301,7 @@ const RegisterPage = () => {
                   value={formData.email}
                   onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-                      placeholder="your.email@example.com"
+                      placeholder="your.email@mail.ls"
                 />
               </div>
 

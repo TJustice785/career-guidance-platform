@@ -22,9 +22,9 @@ const comprehensiveDatabaseSeeder = async () => {
 
     // Student Users
     const student1 = await addDoc(collection(db, 'users'), {
-      email: 'john.doe@email.com',
-      firstName: 'John',
-      lastName: 'Doe',
+      email: 'tshepo.mokoena@email.com',
+      firstName: 'Tshepo',
+      lastName: 'Mokoena',
       role: 'student',
       phone: '+266 2345 6789',
       dateOfBirth: '2000-05-15',
@@ -43,7 +43,7 @@ const comprehensiveDatabaseSeeder = async () => {
         description: 'Tutored mathematics and science to junior students'
       }],
       address: '123 Main Street, Maseru',
-      emergencyContact: 'Jane Doe',
+      emergencyContact: 'Mamello Mokoena',
       emergencyPhone: '+266 3456 7890',
       isActive: true,
       createdAt: serverTimestamp(),
@@ -51,9 +51,9 @@ const comprehensiveDatabaseSeeder = async () => {
     });
 
     const student2 = await addDoc(collection(db, 'users'), {
-      email: 'jane.smith@email.com',
-      firstName: 'Jane',
-      lastName: 'Smith',
+      email: 'palesa.motsoene@email.com',
+      firstName: 'Palesa',
+      lastName: 'Motsoene',
       role: 'student',
       phone: '+266 3456 7890',
       dateOfBirth: '1999-08-22',
@@ -72,7 +72,7 @@ const comprehensiveDatabaseSeeder = async () => {
         description: 'Assisted with social media marketing campaigns'
       }],
       address: '456 Business District, Maseru',
-      emergencyContact: 'John Smith',
+      emergencyContact: 'Thabo Motsoene',
       emergencyPhone: '+266 4567 8901',
       isActive: true,
       createdAt: serverTimestamp(),
@@ -82,8 +82,8 @@ const comprehensiveDatabaseSeeder = async () => {
     // Company Users
     const company1 = await addDoc(collection(db, 'users'), {
       email: 'hr@techcorp.co.ls',
-      firstName: 'Sarah',
-      lastName: 'Johnson',
+      firstName: 'Lerato',
+      lastName: 'Ntsane',
       role: 'company',
       phone: '+266 4567 8901',
       companyName: 'TechCorp Lesotho',
@@ -96,8 +96,8 @@ const comprehensiveDatabaseSeeder = async () => {
 
     const company2 = await addDoc(collection(db, 'users'), {
       email: 'recruitment@lesothobank.co.ls',
-      firstName: 'Michael',
-      lastName: 'Brown',
+      firstName: 'Rethabile',
+      lastName: 'Molefe',
       role: 'company',
       phone: '+266 5678 9012',
       companyName: 'Lesotho Bank',
@@ -405,8 +405,8 @@ const comprehensiveDatabaseSeeder = async () => {
     
     const courseApplication = await addDoc(collection(db, 'applications'), {
       studentId: student1.id,
-      studentName: 'John Doe',
-      studentEmail: 'john.doe@email.com',
+      studentName: 'Tshepo Mokoena',
+      studentEmail: 'tshepo.mokoena@email.com',
       studentPhone: '+266 2345 6789',
       studentDateOfBirth: '2000-05-15',
       currentGrade: 'Grade 12',
@@ -430,8 +430,8 @@ const comprehensiveDatabaseSeeder = async () => {
 
     const jobApplication = await addDoc(collection(db, 'applications'), {
       studentId: student2.id,
-      studentName: 'Jane Smith',
-      studentEmail: 'jane.smith@email.com',
+      studentName: 'Palesa Motsoene',
+      studentEmail: 'palesa.motsoene@email.com',
       studentPhone: '+266 3456 7890',
       studentDateOfBirth: '1999-08-22',
       currentGrade: 'Bachelor\'s Degree',
@@ -458,7 +458,7 @@ const comprehensiveDatabaseSeeder = async () => {
     
     const admission = await addDoc(collection(db, 'admissions'), {
       studentId: student1.id,
-      studentName: 'John Doe',
+      studentName: 'Tshepo Mokoena',
       courseId: csCourse.id,
       courseName: 'Bachelor of Computer Science',
       institutionId: nul.id,
