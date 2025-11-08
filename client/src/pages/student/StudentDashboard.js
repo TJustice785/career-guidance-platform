@@ -56,158 +56,126 @@ function DashboardHome({ stats, loading, userData, recentApplications, recentJob
           </p>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        {/* Stats Grid - Improved Layout */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <StatCard
-            title="Applied Courses"
+            title="Applied"
             value={stats.appliedCourses}
-            description="Total course applications"
+            description="Applications"
           />
           <StatCard
             title="Accepted"
             value={stats.acceptedApplications}
             change={12}
-            description="Approved applications"
+            description="Approved"
           />
           <StatCard
             title="Pending"
             value={stats.pendingApplications}
-            description="Awaiting review"
+            description="In Review"
           />
           <StatCard
-            title="Completed Courses"
+            title="Completed"
             value={stats.completedCourses}
-            description="Courses finished"
+            description="Finished"
           />
         </div>
 
-        {/* Motivational Quotes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          {/* Quote 1 */}
-          <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 via-cyan-600 to-blue-700 p-[1px] shadow-xl hover:shadow-2xl transition-all duration-300">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-blue-500/20 animate-pulse"></div>
-            
-            <div className="relative bg-gradient-to-br from-blue-600 via-cyan-600 to-blue-700 rounded-2xl p-6">
-              <div className="mb-4">
-                <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 mb-4">
-                  <span className="text-xs font-mono uppercase tracking-wider text-white font-semibold">Daily Inspiration</span>
-                </div>
-                
-                <svg className="w-10 h-10 text-white/40 mb-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
-                </svg>
-              </div>
-              
-              <p className="text-white text-lg font-semibold mb-4 leading-relaxed">
-                "Success is not final, failure is not fatal: it is the courage to continue that counts."
-              </p>
-              
-              <div className="flex items-center justify-between">
-                <p className="text-white/80 text-sm font-medium">— Winston Churchill</p>
-                <div className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm">
-                  <span className="text-xs font-mono text-white">💪 Keep Going</span>
-                </div>
-              </div>
+        {/* Profile Completion - Moved Up */}
+        <div className="bg-gradient-to-r from-primary-50 to-blue-50 dark:from-primary-900/20 dark:to-blue-900/20 rounded-2xl p-6 border border-primary-200 dark:border-primary-800 mb-8">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">Complete Your Profile</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Unlock more opportunities by completing your profile</p>
+            </div>
+            <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">
+              {(() => {
+                let completion = 0;
+                if (userData?.firstName) completion += 15;
+                if (userData?.lastName) completion += 15;
+                if (userData?.email) completion += 10;
+                if (userData?.phone) completion += 10;
+                if (userData?.currentGrade) completion += 15;
+                if (userData?.subjects && userData.subjects.length > 0) completion += 15;
+                if (userData?.certifications && userData.certifications.length > 0) completion += 10;
+                if (userData?.skills && userData.skills.length > 0) completion += 10;
+                return completion;
+              })()}%
             </div>
           </div>
-
-          {/* Quote 2 */}
-          <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-600 via-emerald-600 to-green-700 p-[1px] shadow-xl hover:shadow-2xl transition-all duration-300">
-            <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 via-emerald-500/20 to-green-500/20 animate-pulse"></div>
-            
-            <div className="relative bg-gradient-to-br from-green-600 via-emerald-600 to-green-700 rounded-2xl p-6">
-              <div className="mb-4">
-                <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 mb-4">
-                  <span className="text-xs font-mono uppercase tracking-wider text-white font-semibold">Words of Wisdom</span>
-                </div>
-                
-                <svg className="w-10 h-10 text-white/40 mb-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
-                </svg>
-              </div>
-              
-              <p className="text-white text-lg font-semibold mb-4 leading-relaxed">
-                "Education is the most powerful weapon which you can use to change the world."
-              </p>
-              
-              <div className="flex items-center justify-between">
-                <p className="text-white/80 text-sm font-medium">— Nelson Mandela</p>
-                <div className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm">
-                  <span className="text-xs font-mono text-white">🎓 Stay Focused</span>
-                </div>
-              </div>
-            </div>
+          <div className="w-full bg-gray-200 dark:bg-dark-500 rounded-full h-3 mb-3">
+            <div 
+              className="h-full bg-gradient-to-r from-primary-500 via-primary-600 to-blue-600 transition-all duration-1000 rounded-full"
+              style={{ width: `${(() => {
+                let completion = 0;
+                if (userData?.firstName) completion += 15;
+                if (userData?.lastName) completion += 15;
+                if (userData?.email) completion += 10;
+                if (userData?.phone) completion += 10;
+                if (userData?.currentGrade) completion += 15;
+                if (userData?.subjects && userData.subjects.length > 0) completion += 15;
+                if (userData?.certifications && userData.certifications.length > 0) completion += 10;
+                if (userData?.skills && userData.skills.length > 0) completion += 10;
+                return completion;
+              })()}%` }}
+            ></div>
           </div>
-        </div>
-
-        {/* Quick Access */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <Link to="/student/personalized" className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 border border-blue-200 hover:shadow-lg transition-shadow">
-            <h2 className="text-lg font-semibold text-blue-900 mb-2">
-              🎯 Personalized Opportunities
-            </h2>
-            <p className="text-blue-700 text-sm mb-4">
-              Discover courses and jobs tailored to your qualifications
-            </p>
-            <div className="text-blue-600 text-sm font-medium">
-              View Recommendations →
-            </div>
-          </Link>
-          
-          <Link to="/student/browse-jobs" className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 border border-green-200 hover:shadow-lg transition-shadow">
-            <h2 className="text-lg font-semibold text-green-900 mb-2">
-              💼 Browse Jobs
-            </h2>
-            <p className="text-green-700 text-sm mb-4">
-              Find career opportunities that match your skills
-            </p>
-            <div className="text-green-600 text-sm font-medium">
-              Explore Jobs →
-            </div>
-          </Link>
-          
-          <Link to="/student/browse-schools" className="bg-gradient-to-br from-teal-50 to-cyan-100 rounded-2xl p-6 border border-teal-200 hover:shadow-lg transition-shadow">
-            <h2 className="text-lg font-semibold text-teal-900 mb-2">
-              🎓 Browse Schools
-            </h2>
-            <p className="text-teal-700 text-sm mb-4">
-              Explore educational opportunities
-            </p>
-            <div className="text-teal-600 text-sm font-medium">
-              Find Courses →
-            </div>
+          <Link to="/student/qualifications" className="text-sm text-primary-600 dark:text-primary-400 hover:underline font-semibold">
+            Update your qualifications →
           </Link>
         </div>
 
-        {/* Additional Quick Access */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <Link to="/student/qualifications" className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-6 border border-orange-200 hover:shadow-lg transition-shadow">
-            <h2 className="text-lg font-semibold text-orange-900 mb-2">
-              📋 My Qualifications
-            </h2>
-            <p className="text-orange-700 text-sm mb-4">
-              Manage your academic and professional qualifications
-            </p>
-            <div className="text-orange-600 text-sm font-medium">
-              Edit Qualifications →
+
+        {/* Quick Access - Primary Actions */}
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-6">Quick Actions</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          {/* Personalized - Feature */}
+          <Link to="/student/personalized" className="group">
+            <div className="bg-gradient-to-br from-primary-600 to-blue-700 rounded-2xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">🎯</div>
+              <h3 className="text-xl font-bold mb-2">For You</h3>
+              <p className="text-white/90 text-sm mb-4">Personalized matches</p>
+              <div className="flex items-center text-sm font-semibold">Explore <span className="ml-2">→</span></div>
             </div>
           </Link>
           
-          <Link to="/student/applications" className="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl p-6 border border-indigo-200 hover:shadow-lg transition-shadow">
-            <h2 className="text-lg font-semibold text-indigo-900 mb-2">
-              📝 My Applications
-            </h2>
-            <p className="text-indigo-700 text-sm mb-4">
-              Track your job and course applications
-            </p>
-            <div className="text-indigo-600 text-sm font-medium">
-              View Applications →
+          {/* Browse Jobs */}
+          <Link to="/student/browse-jobs" className="group">
+            <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">💼</div>
+              <h3 className="text-xl font-bold mb-2">Jobs</h3>
+              <p className="text-white/90 text-sm mb-4">Career opportunities</p>
+              <div className="flex items-center text-sm font-semibold">Browse <span className="ml-2">→</span></div>
+            </div>
+          </Link>
+          
+          {/* Browse Schools */}
+          <Link to="/student/browse-schools" className="group">
+            <div className="bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">🎓</div>
+              <h3 className="text-xl font-bold mb-2">Schools</h3>
+              <p className="text-white/90 text-sm mb-4">Find institutions</p>
+              <div className="flex items-center text-sm font-semibold">Explore <span className="ml-2">→</span></div>
+            </div>
+          </Link>
+          
+          {/* My Applications */}
+          <Link to="/student/applications" className="group">
+            <div className="bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">📝</div>
+              <h3 className="text-xl font-bold mb-2">Applications</h3>
+              <p className="text-white/90 text-sm mb-4">Track submissions</p>
+              <div className="flex items-center text-sm font-semibold">View <span className="ml-2">→</span></div>
             </div>
           </Link>
         </div>
+        </div>
 
-        {/* Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        {/* Recent Activity */}
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-6">Recent Activity</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 rounded-2xl p-6 border border-blue-200 dark:border-blue-700">
             <h2 className="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-4">
               Recent Applications
@@ -272,59 +240,57 @@ function DashboardHome({ stats, loading, userData, recentApplications, recentJob
             </div>
           </div>
         </div>
+        </div>
 
-        {/* Progress Section */}
-        <div className="bg-dark-300 rounded-2xl p-6 border border-gray-600">
-          <h2 className="text-lg font-semibold text-white mb-4">
-            Your Progress
-          </h2>
-          <div className="space-y-4">
-            <div>
-              <div className="flex justify-between mb-2">
-                <span className="text-sm font-medium text-secondary">Profile Completion</span>
-                <span className="text-sm font-bold text-primary">
-                  {(() => {
-                    let completion = 0;
-                    if (userData?.firstName) completion += 20;
-                    if (userData?.lastName) completion += 20;
-                    if (userData?.email) completion += 20;
-                    if (userData?.currentGrade) completion += 20;
-                    if (userData?.subjects && userData.subjects.length > 0) completion += 20;
-                    return completion;
-                  })()}%
-                </span>
-              </div>
-              <div className="w-full bg-dark-500 rounded-full h-3">
-                <div className="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full" style={{ 
-                  width: `${(() => {
-                    let completion = 0;
-                    if (userData?.firstName) completion += 20;
-                    if (userData?.lastName) completion += 20;
-                    if (userData?.email) completion += 20;
-                    if (userData?.currentGrade) completion += 20;
-                    if (userData?.subjects && userData.subjects.length > 0) completion += 20;
-                    return completion;
-                  })()}%` 
-                }}></div>
-              </div>
+        {/* Success Rate Card */}
+        <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl p-6 border border-green-200 dark:border-green-800">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Application Success Rate</h3>
+          <div className="flex items-center justify-between mb-3">
+            <span className="text-gray-600 dark:text-gray-400">Your acceptance rate</span>
+            <span className="text-3xl font-bold text-green-600 dark:text-green-400">
+              {stats.appliedCourses > 0 
+                ? Math.round((stats.acceptedApplications / stats.appliedCourses) * 100) 
+                : 0}%
+            </span>
+          </div>
+          <div className="w-full bg-gray-200 dark:bg-dark-500 rounded-full h-3">
+            <div className="bg-gradient-to-r from-green-500 to-emerald-600 h-3 rounded-full transition-all duration-1000" style={{ 
+              width: `${stats.appliedCourses > 0 
+                ? Math.round((stats.acceptedApplications / stats.appliedCourses) * 100) 
+                : 0}%` 
+            }}></div>
+          </div>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-3">
+            {stats.acceptedApplications} accepted out of {stats.appliedCourses} applications
+          </p>
+        </div>
+
+        {/* Motivational Quotes */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Quote 1 */}
+          <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 via-cyan-600 to-blue-700 p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
+            <div className="mb-3">
+              <svg className="w-8 h-8 text-white/40 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+              </svg>
             </div>
-            <div>
-              <div className="flex justify-between mb-2">
-                <span className="text-sm font-medium text-secondary">Application Success Rate</span>
-                <span className="text-sm font-bold text-primary">
-                  {stats.appliedCourses > 0 
-                    ? Math.round((stats.acceptedApplications / stats.appliedCourses) * 100) 
-                    : 0}%
-                </span>
-              </div>
-              <div className="w-full bg-dark-500 rounded-full h-3">
-                <div className="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full" style={{ 
-                  width: `${stats.appliedCourses > 0 
-                    ? Math.round((stats.acceptedApplications / stats.appliedCourses) * 100) 
-                    : 0}%` 
-                }}></div>
-              </div>
+            <p className="text-white text-lg font-semibold mb-3 leading-relaxed">
+              "Success is not final, failure is not fatal: it is the courage to continue that counts."
+            </p>
+            <p className="text-white/80 text-sm font-medium">— Winston Churchill</p>
+          </div>
+
+          {/* Quote 2 */}
+          <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-600 via-emerald-600 to-green-700 p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
+            <div className="mb-3">
+              <svg className="w-8 h-8 text-white/40 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+              </svg>
             </div>
+            <p className="text-white text-lg font-semibold mb-3 leading-relaxed">
+              "Education is the most powerful weapon which you can use to change the world."
+            </p>
+            <p className="text-white/80 text-sm font-medium">— Nelson Mandela</p>
           </div>
         </div>
       </div>
