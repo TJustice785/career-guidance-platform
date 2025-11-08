@@ -59,3 +59,27 @@ serviceAccountKey.json
 # Firebase cache and hosting files
 .firebase/
 */.firebase/
+
+# Test and debug files
+test-*.js
+*-test.js
+debug-*.js
+*-debug.js
+simple-test.js
+console.log*
+
+# Seed and temporary data files
+seed-*.js
+*-seed.js
+verify-*.js
+*_data_import.json
+*_SEED_DATA.json
+
+# Documentation duplicates (keep only README.md)
+*_GUIDE.md
+*_SUMMARY.md
+*_COMPLETE.md
+*_FIX.md
+*_IMPLEMENTATION.md
+*_AUDIT.md
+TODO.md
