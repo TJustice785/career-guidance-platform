@@ -63,10 +63,14 @@ serviceAccountKey.json
 # Test and debug files
 test-*.js
 *-test.js
+*.test.js
+*.spec.js
 debug-*.js
 *-debug.js
 simple-test.js
 console.log*
+__tests__/
+setupTests.js
 
 # Seed and temporary data files
 seed-*.js
