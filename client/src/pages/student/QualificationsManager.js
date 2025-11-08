@@ -647,6 +647,7 @@ const QualificationsManager = () => {
                   <div key={index} className="flex items-center justify-between p-2 bg-gray-50 rounded">
                     <span>{cert}</span>
                     <button
+                      type="button"
                       onClick={() => handleRemoveCertification(index)}
                       className="text-red-600 hover:text-red-800"
                     >
@@ -660,10 +661,12 @@ const QualificationsManager = () => {
                   type="text"
                   value={newCertification}
                   onChange={(e) => setNewCertification(e.target.value)}
+                  onKeyPress={(e) => e.key === 'Enter' && handleAddCertification()}
                   placeholder="Add certification..."
                   className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 <button
+                  type="button"
                   onClick={handleAddCertification}
                   className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
                 >
@@ -680,6 +683,7 @@ const QualificationsManager = () => {
                   <span key={index} className="flex items-center px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">
                     {skill}
                     <button
+                      type="button"
                       onClick={() => handleRemoveSkill(index)}
                       className="ml-2 text-green-600 hover:text-green-800"
                     >
@@ -693,10 +697,12 @@ const QualificationsManager = () => {
                   type="text"
                   value={newSkill}
                   onChange={(e) => setNewSkill(e.target.value)}
+                  onKeyPress={(e) => e.key === 'Enter' && handleAddSkill()}
                   placeholder="Add skill..."
                   className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 <button
+                  type="button"
                   onClick={handleAddSkill}
                   className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
                 >
@@ -713,6 +719,7 @@ const QualificationsManager = () => {
                   <span key={index} className="flex items-center px-3 py-1 bg-teal-100 text-teal-800 text-sm rounded-full">
                     {language}
                     <button
+                      type="button"
                       onClick={() => handleRemoveLanguage(index)}
                       className="ml-2 text-teal-600 hover:text-teal-800"
                     >
@@ -726,10 +733,12 @@ const QualificationsManager = () => {
                   type="text"
                   value={newLanguage}
                   onChange={(e) => setNewLanguage(e.target.value)}
+                  onKeyPress={(e) => e.key === 'Enter' && handleAddLanguage()}
                   placeholder="Add language..."
                   className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 <button
+                  type="button"
                   onClick={handleAddLanguage}
                   className="px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700"
                 >
@@ -752,6 +761,7 @@ const QualificationsManager = () => {
                         <p className="text-sm text-gray-700 mt-2">{exp.description}</p>
                       </div>
                       <button
+                        type="button"
                         onClick={() => handleRemoveWorkExperience(index)}
                         className="text-red-600 hover:text-red-800"
                       >
@@ -793,6 +803,7 @@ const QualificationsManager = () => {
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 <button
+                  type="button"
                   onClick={handleAddWorkExperience}
                   className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
                 >
