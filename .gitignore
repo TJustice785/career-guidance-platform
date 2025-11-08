@@ -55,3 +55,7 @@ Thumbs.db
 # Firebase credentials
 *firebase-adminsdk*.json
 serviceAccountKey.json
+
+# Firebase cache and hosting files
+.firebase/
+*/.firebase/
