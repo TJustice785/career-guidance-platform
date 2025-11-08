@@ -59,13 +59,13 @@ function DashboardHome({ stats, loading, recentApplications }) {
       {/* Header */}
       <div className="mb-8 animate-fade-in">
         <h1 className="text-4xl font-bold text-primary mb-2">
-          Welcome, {userData?.name || 'Institute'}! 🏫
+          Welcome, {userData?.name || 'Institute'}!
         </h1>
         <p className="text-secondary text-lg">Manage your institution, courses, and student applications</p>
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         <StatCard
           title="Total Students"
           value={stats.totalStudents}

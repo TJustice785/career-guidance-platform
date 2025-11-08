@@ -49,7 +49,7 @@ function DashboardHome({ stats, loading, userData, recentApplications, recentJob
         {/* Header */}
         <div className="mb-8 animate-fade-in">
           <h1 className="text-4xl font-bold text-primary mb-2">
-            Welcome back, {userData?.firstName || 'Student'}! 👋
+            Welcome back, {userData?.firstName || 'Student'}!
           </h1>
           <p className="text-secondary text-lg">
             Track your academic journey and career opportunities
@@ -132,41 +132,37 @@ function DashboardHome({ stats, loading, userData, recentApplications, recentJob
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {/* Personalized - Feature */}
           <Link to="/student/personalized" className="group">
-            <div className="bg-gradient-to-br from-primary-600 to-blue-700 rounded-2xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">🎯</div>
-              <h3 className="text-xl font-bold mb-2">For You</h3>
-              <p className="text-white/90 text-sm mb-4">Personalized matches</p>
-              <div className="flex items-center text-sm font-semibold">Explore <span className="ml-2">→</span></div>
+            <div className="bg-gradient-to-br from-primary-600 to-blue-700 rounded-2xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-white/10">
+              <h3 className="text-2xl font-bold mb-3">For You</h3>
+              <p className="text-white/80 text-sm mb-6">Personalized matches</p>
+              <div className="flex items-center text-sm font-semibold group-hover:gap-3 transition-all">Explore <span className="ml-2">→</span></div>
             </div>
           </Link>
           
           {/* Browse Jobs */}
           <Link to="/student/browse-jobs" className="group">
-            <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">💼</div>
-              <h3 className="text-xl font-bold mb-2">Jobs</h3>
-              <p className="text-white/90 text-sm mb-4">Career opportunities</p>
-              <div className="flex items-center text-sm font-semibold">Browse <span className="ml-2">→</span></div>
+            <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-white/10">
+              <h3 className="text-2xl font-bold mb-3">Jobs</h3>
+              <p className="text-white/80 text-sm mb-6">Career opportunities</p>
+              <div className="flex items-center text-sm font-semibold group-hover:gap-3 transition-all">Browse <span className="ml-2">→</span></div>
             </div>
           </Link>
           
           {/* Browse Schools */}
           <Link to="/student/browse-schools" className="group">
-            <div className="bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">🎓</div>
-              <h3 className="text-xl font-bold mb-2">Schools</h3>
-              <p className="text-white/90 text-sm mb-4">Find institutions</p>
-              <div className="flex items-center text-sm font-semibold">Explore <span className="ml-2">→</span></div>
+            <div className="bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-white/10">
+              <h3 className="text-2xl font-bold mb-3">Schools</h3>
+              <p className="text-white/80 text-sm mb-6">Find institutions</p>
+              <div className="flex items-center text-sm font-semibold group-hover:gap-3 transition-all">Explore <span className="ml-2">→</span></div>
             </div>
           </Link>
           
           {/* My Applications */}
           <Link to="/student/applications" className="group">
-            <div className="bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">📝</div>
-              <h3 className="text-xl font-bold mb-2">Applications</h3>
-              <p className="text-white/90 text-sm mb-4">Track submissions</p>
-              <div className="flex items-center text-sm font-semibold">View <span className="ml-2">→</span></div>
+            <div className="bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl p-6 text-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-white/10">
+              <h3 className="text-2xl font-bold mb-3">Applications</h3>
+              <p className="text-white/80 text-sm mb-6">Track submissions</p>
+              <div className="flex items-center text-sm font-semibold group-hover:gap-3 transition-all">View <span className="ml-2">→</span></div>
             </div>
           </Link>
         </div>

@@ -69,13 +69,13 @@ function DashboardHome({ stats, loading }) {
       {/* Header */}
       <div className="mb-8 animate-fade-in">
         <h1 className="text-4xl font-bold text-primary mb-2">
-          Welcome back, {userData?.firstName || 'Admin'}! 👋
+          Welcome back, {userData?.firstName || 'Admin'}!
         </h1>
-        <p className="text-secondary text-lg">Here's what's happening with your platform today.</p>
+        <p className="text-secondary text-lg">Here's what's happening with your platform today</p>
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
         <StatCard
           title="Total Users"
           value={stats.totalUsers}
@@ -170,7 +170,7 @@ function DashboardHome({ stats, loading }) {
               View Reports
             </Link>
             <Link to="/admin/update-courses" className="block w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-4 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all font-medium text-center shadow-lg">
-              🔄 Update Courses to Real Programs
+              Update Courses to Real Programs
             </Link>
           </div>
         </div>
