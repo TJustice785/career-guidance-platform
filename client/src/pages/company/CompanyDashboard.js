@@ -1750,7 +1750,7 @@ function ProfileSettings() {
           </div>
           <div>
             <label className="block text-sm font-medium mb-2">Website</label>
-            <input type="url" className="w-full px-4 py-2 border rounded-lg" placeholder="https://example.com" />
+            <input type="url" className="w-full px-4 py-2 border rounded-lg" placeholder="https://yoursite.co.ls" />
           </div>
           <button type="submit" className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700">
             Update Profile

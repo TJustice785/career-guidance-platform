@@ -206,7 +206,7 @@ const InstitutionForm = ({ isEdit = false }) => {
                     { type: 'url', message: 'Please enter a valid URL' },
                   ]}
                 >
-                  <Input placeholder="https://example.com" />
+                  <Input placeholder="https://institution.co.ls" />
                 </Form.Item>
                 
                 <Form.Item

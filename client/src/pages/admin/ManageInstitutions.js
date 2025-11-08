@@ -320,7 +320,7 @@ const ManageInstitutions = () => {
                     value={formData.website}
                     onChange={(e) => setFormData({ ...formData, website: e.target.value })}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
-                    placeholder="https://example.com"
+                    placeholder="https://institution.co.ls"
                   />
                 </div>
 
@@ -345,7 +345,7 @@ const ManageInstitutions = () => {
                     value={formData.logoUrl}
                     onChange={(e) => setFormData({ ...formData, logoUrl: e.target.value })}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
-                    placeholder="https://example.com/logo.png"
+                    placeholder="https://institution.co.ls/logo.png"
                   />
                 </div>
 
